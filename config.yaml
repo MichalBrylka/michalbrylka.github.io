@@ -1,8 +1,8 @@
 baseURL: https://michalbrylka.github.io/
 languageCode: en-us
 languageName: English
-title: Michał Bryłka | Devexcellence
 copyright: '&copy; Copyright 2019-2022 Michał Bryłka'
+title: "Michał Bryłka | Devexcellence"
 
 theme: LoveIt
 
@@ -20,7 +20,16 @@ author:
 outputs:
   home: ["HTML", "RSS", "JSON"]   
 
-params:
+params: 
+  header:
+    title:
+      logo: ''
+      name: "Devexcellence"
+      pre: '<i class="fa-solid fa-code" ></i>'
+
+
+      post: ''
+      typeit: false   
   home:
     rss: 10
     profile:

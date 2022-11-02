@@ -1,7 +1,7 @@
 ---
 title: "My First Post"
 date: 2022-11-02T16:07:27+01:00
-draft: true
+draft: false
 math: true
 ---
 fddfdfdfdfdfdffddf
@@ -15,7 +15,7 @@ fddfdfdfdfdfdffddf
 A **tip** banner
 {{< /admonition >}}
 
-:(fas fa-message):
+
 
 $$ \ce{CO2 + C -> 2 CO} $$
 
