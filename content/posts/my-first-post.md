@@ -1,7 +1,7 @@
 ---
 title: "My First Post"
 date: 2022-11-02T16:07:27+01:00
-draft: false
+draft: true
 math: true
 ---
 fddfdfdfdfdfdffddf
@@ -30,3 +30,11 @@ Block Formula:
 
 
 $c = \pm\sqrt{a^2 + b^2}$ and \\(f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi\\)
+
+
+
+
+
+{{< details 123>}}
+Collapsable content
+{{< /details >}}
