@@ -9,7 +9,7 @@ draft: false
 author: Michał Bryłka
 ---
 
-Recenly we've been seeing an increased activities on various blogs due to upcoming .NET 5 release date and one of it's hottest feature - C# 9.0 records. 
+Recently we've been seeing an increased activities on various blogs due to upcoming .NET 5 release date and one of it's hottest feature - C# 9.0 records. 
 A lot was written about this feature, starting with [MSDN](https://devblogs.microsoft.com/dotnet/welcome-to-c-9-0/). 
 
 What was not clear however, was whether one can use records in older frameworks - like .NET 4.8. 
@@ -72,9 +72,9 @@ public static class RecordsHelper
 
 ## Consuming records in older frameworks 
 {{< admonition tip "Tip" true >}}
-Records are not any special types - they are, per se, not specially recognized by CLI/CLR. They are just spcially designed classes with: 
-- init only properties (default behaviour for positional records)
-- authomatic structural equality, IEquatable<> implementation, equality operators
+Records are not any special types - they are, per se, not specially recognized by CLI/CLR. They are just specially designed classes with: 
+- init only properties (default behavior for positional records)
+- automatic structural equality, IEquatable<> implementation, equality operators
 - positional [deconstruction](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/deconstruct)
 - printing/formatting
 {{< /admonition >}}

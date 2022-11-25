@@ -8,9 +8,8 @@ theme: LoveIt
 
 enableEmoji: true
 
-# disqusShortname: nemesissoft
-
 # googleAnalytics: G-TFL0Z5DXWF
+#enableRobotsTXT: true
 
 author:
   name: Michał Bryłka
@@ -18,9 +17,13 @@ author:
   link: 'https://github.com/MichalBrylka'  
 
 outputs:
-  home: ["HTML", "RSS", "JSON"]   
-
+  home: ["HTML", "RSS", "JSON"]  
+  
 params: 
+  defaultTheme: dark # site default theme ["auto", "light", "dark"]
+  title: "Michał Bryłka | Devexcellence"
+  dateFormat: "2006-01-02"
+
   header:
     title:
       logo: ''
@@ -48,16 +51,46 @@ params:
     Linkedin: 'michalbrylka'
     Twitter: 'michal_brylka'    
     Facebook: 'Michal.Brylka'
+    # RSS: ""
   page:    
     hiddenFromSearch: false    
     fontawesome: true
-    linkToMarkdown: true
+    linkToMarkdown: false
     fraction: true
     math:
       enable: true     
       copyTex: true
       mhchem: true
-
+    share:
+      enable: true
+      Twitter: true
+      Facebook: true
+      Linkedin: true
+      Whatsapp: false
+      Pinterest: false
+      Tumblr: true
+      HackerNews: true
+      Reddit: true
+      VK: false
+      Buffer: false
+      Xing: false
+      Line: true
+      Instapaper: false
+      Pocket: false
+      Flipboard: false
+      Weibo: true
+      Blogger: false
+      Baidu: false
+      Odnoklassniki: false
+      Evernote: false
+      Skype: false
+      Trello: false
+      Mix: false
+    comment:
+      enable: true
+      disqus:
+        enable: true
+        shortname: 'michalbrylka' # Disqus shortname to use Disqus in posts
   search:
     enable: true
     type: lunr
