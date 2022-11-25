@@ -9,7 +9,7 @@ math: true
 author: Michał Bryłka
 ---
 
-C# 8.0 gave us [default interface methods](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/default-interface-methods). They brought us, among other things, the way to introduce new API members without breaking current contracts. Interfaces however still lacked a ability to model "static" members out-of-the-box. Factories became our usual way of dealing with object creation but how about functionalities that class itself knows best how to handle. What about, say, parsing? Enter C# 11's Static Interface Members
+C# 8.0 gave us [default interface methods](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-8.0/default-interface-methods). They brought us, among other things, the way to introduce new API members without breaking current contracts. Interfaces however still lacked a ability to model "static" members out-of-the-box. Factories became our usual way of dealing with object creation but how about functionalities that class itself knows best how to handle. What about, say, parsing? Enter C# 11's Static Interface Members (SIM)
 
 ## Parsing
 Let's examine the following example:
@@ -96,8 +96,20 @@ record CommaSeparatedWords(IReadOnlyList<string> Words) : IMyParsable<CommaSepar
 }
 ``` 
 
-_CommaSeparatedWords_ record will have other _Parse_ and _TryParse_ methods but calling them directly will not be possible i.e. `CommaSeparatedWords.TryParse(...)`. So how can one effectively use them? Answer remains in generic guards. This class will parse line contents while delegating line parsing to _CommaSeparatedWords_:
+_CommaSeparatedWords_ record will have other _Parse_ and _TryParse_ methods but calling them directly will not be possible i.e. `CommaSeparatedWords.TryParse(...)`. So how can one effectively use them? Answer remains in generic guards. 
+``` csharp
+static class MyParsableHelper
+{
+    public static T ParseAs<T>(this string text, IFormatProvider? provider = null)
+        where T : IMyParsable<T>
+        => T.Parse(text, provider);
+}
 
+//usage:
+var words = "A,B,C".ParseAs<CommaSeparatedWords>();
+``` 
+
+But more probably this feature is more useful when wrapped in a class that delegates appropriate functionality. This class will parse line contents while delegating line parsing to _CommaSeparatedWords_:
 ``` csharp
 record Lines<T>(IReadOnlyList<T> Values) : IMyParsable<Lines<T>>
     where T : IMyParsable<T>
@@ -132,8 +144,88 @@ as can be seen here:
 
 ![lines-comma-separated-words](lines-comma-separated-words.png)
 
-## Static Interface Members in standard library 
+## Generic math operations
+Let's consider the following example
+``` cs
+interface IAdditionOperation<T> where T : IAdditionOperation<T>
+{
+    static abstract T Zero { get; }
+    static abstract T operator +(T lhs, T rhs);
+}
 
+record struct IntWrapper(int Value) : IAdditionOperation<IntWrapper>
+{
+    public static IntWrapper Zero => new(0);
+
+    public static IntWrapper operator +(IntWrapper lhs, IntWrapper rhs) => new(lhs.Value + rhs.Value);
+}
+
+//we can now write universal "sum" method for all IAdditionOperation<T>
+static T Sum<T>(IEnumerable<T> numbers) where T : IAdditionOperation<T>
+{
+    var sum = T.Zero;
+    foreach (var number in numbers)
+        sum += number;
+    return sum;
+
+    //or:
+    //return numbers.Aggregate(T.Zero, (acc, current) => acc + current);
+}
+
+//which can be used:
+var sum = Sum(Enumerable.Range(1, 10).Select(i => new IntWrapper(i)));
+```
+We could easily create other number wrappers now (for `float`, `long` etc.) but that would be pointless. While this example is great for demonstration, one could argue that, in order for it to work, such generic interfaces should be built into .NET number type system. They are. In next post we will explore these concepts. 
+
+## Static polymorphism
+Distinction between shadowed and "new" overrides for instance members existed in C# practically since it's inception. Let's examine how it's defined for static members
+``` cs
+interface IValues
+{
+    static abstract string Static { get; }
+    string Instance { get; }
+}
+class Base : IValues
+{
+    public static string Static => "Base";
+    public string Instance => "Base";
+}
+//this class shadows members
+class ShadowImpl : Base, IValues
+{
+    public static string Static => "Shadow";
+    public string Instance => "Shadow";
+}
+//this class defines "new" overrides 
+class NewImpl : Base, IValues
+{
+    public static new string Static => "New";
+    public new string Instance => "New";
+}
+
+//we can now use generic method to print values
+static void Print<T>(T t) where T : IValues
+    => Console.WriteLine("{0,6}, {1,6}", T.Static, t.Instance);
+
+//and these are our results 
+var @base = new Base();
+var shadow = new ShadowImpl();
+var @new = new NewImpl();
+Base shadowAsBase = shadow;
+Base newAsBase = @new;
+
+
+Print(@base);       //   Base,   Base
+Print(shadow);      // Shadow, Shadow
+Print(@new);        //    New,    New
+Print(shadowAsBase);//   Base, Shadow
+Print(newAsBase);   //   Base,    New
+```
+So these examples show that we have static polymorphism in C# now :sparkling_heart:. Whether you need that it's up to you but I wonder when such concepts will find their ways into job interviews :grinning:
+
+## SIM in standard library 
+
+### Parsing
 One can assume that parsing is such important feature that appropriate interface should exist in standard library. It does, in 2 flavours in fact:
 - [IParsable<TSelf>](https://learn.microsoft.com/en-us/dotnet/api/system.iparsable-1?view=net-7.0)
 - [ISpanParsable<TSelf>](https://learn.microsoft.com/en-us/dotnet/api/system.ispanparsable-1?view=net-7.0)
@@ -205,6 +297,8 @@ var parsedStructs = CsvFile<CsvLine<int, float, char>>.Parse("""
     """);
 ``` 
 
+### Generic math operation
+This topic is quite comprehensive. Stay tuned for a separate blog post. It's scheduled for 5th of December 2022. We will attempt to implement whole generic type using new constructs 
 
 ## Sources 
 - [Static Interface Members](https://gist.github.com/MichalBrylka/faf99aed6a2c307a5cb9f763bed5e241)
