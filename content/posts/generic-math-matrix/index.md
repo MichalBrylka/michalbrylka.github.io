@@ -185,7 +185,7 @@ class Matrix
     }
 }
 ``` 
-but we would be better of when that guard would be changed to 
+but we would be better off when that guard would be changed to 
 ``` csharp
 public partial class Matrix<TNumber>
     where TNumber : unmanaged, 
@@ -195,7 +195,7 @@ public partial class Matrix<TNumber>
     /*...*/
     public unsafe TNumber Sum()
     {
-        //"Zero" also seems more natural in that context as opposed to "AdditiveIdentity"
+        //"Zero" also looks more natural in that context as opposed to "AdditiveIdentity"
         var result = TNumber.Zero; 
         fixed (TNumber* pData = _data)
         {
@@ -208,7 +208,7 @@ public partial class Matrix<TNumber>
 }
 ```
 
-Summation is obviously useful but it's also trivial in it's form. For instance let's consider C# whole number types. Like in math, [natural](https://en.wikipedia.org/wiki/Natural_number) and [integer](https://en.wikipedia.org/wiki/Integer) numbers are [closed](https://en.wikipedia.org/wiki/Closure_(mathematics)) under addition. When you consider other operations on these numbers, say division, this is no longer the case. While we could count average of whole numbers in C# as follows
+Summation is obviously useful but it's also trivial in it's form. For instance let's consider C# whole number types. Like in math, [natural](https://en.wikipedia.org/wiki/Natural_number) and [integer](https://en.wikipedia.org/wiki/Integer) numbers are [closed](https://en.wikipedia.org/wiki/Closure_(mathematics)) under addition. When you consider other operations on these numbers, say division, this is no longer the case. While we could calculate an average of integers in C# as follows
 ``` csharp
 var intArray = new[] { 1, 2, 4 };
 var avg = intArray.Sum() / intArray.Length; //2
@@ -280,7 +280,7 @@ public Matrix<TNumber> Minor(int iRow, int iCol)
     return new(minor);
 }
 ```
-Similarly it might be useful to obtain largest and smallest element in matrix. Since that requires some comparisons, let's add `IComparisonOperators<TNumber, TNumber, bool>` interface to our generic guard for `TNumber`. Doing so enables us to then use comparison operators. We will however thus loose the ability of using types that do not possess relational ordering - [Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex?view=net-7.0) type being most notable here
+Similarly it might be useful to obtain largest and smallest element in matrix. Since that requires some comparisons, let's add `IComparisonOperators<TNumber, TNumber, bool>` interface to our generic guard for `TNumber`. Doing so enables us to then use comparison operators. We will however lose (as a consequence) the ability of using types that do not possess relational ordering - [Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex?view=net-7.0) type being most notable here
 {{< admonition type=note title="Note" open=true >}}
 Using `IComparisonOperators<TNumber, TNumber, bool>` is somewhat limiting. It's probably more important to be able to use final matrix with types like Complex especially if Min/Max operation could be added using different approach. So final design of matrix might reflect that notion
 {{< /admonition >}}
@@ -684,7 +684,7 @@ $$
 Code "performance" is ambiguous term. It may refer to both ease/speed of development of given feature or how said feature behaves during program runtime. Let me address the former one first as it may be easier to demonstrate
 
 ### Speed of development 
-Some time ago I've create _generic_ [predictor](https://github.com/nemesissoft/SimpleLogisticRegression/tree/main) that used [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression). In that context _"generic"_ means that it was not dedicated and can be used to any problem of binary classification but it's universal enough that same mechanism can be employed for multi-class classification. 
+Some time ago I've create _generic_ [predictor](https://github.com/nemesissoft/SimpleLogisticRegression/tree/main) that used [logistic regression](https://en.wikipedia.org/wiki/Logistic_regression). In that context _"generic"_ meant that it was not dedicated and could be used to solve any binary classification problem (while being universal enough that same mechanism might be employed for multi-class classification). 
 
 I decided to introduce generic math to this predictor as users may then opt to use, say, different floating point number type (like`System.Single`or`System.Half`) when it will give them similar results (for certain problems this really might be the case) but with smaller memory footprint and faster processing times. All that conversion was done on separate [branch](https://github.com/nemesissoft/SimpleLogisticRegression/tree/feature/GenericMath). 
 
@@ -720,9 +720,9 @@ These are the results from my machine:
 | Vector2_Long   | Long       | 10000 | 443.050 us | 2.1181 us | 1.8776 us |  1.03 |
 | Span_Long      | Long       | 10000 | 393.092 us | 2.3554 us | 1.9669 us |  0.91 |
 
-One can clearly see that memory-wise, they all behave the same - by not allocating anything. Types in benchmark were defined as structs. While it may not be best option for such data structures, it helps here by not obstructing out view with needless allocations). 
+One can clearly see that memory-wise, they all behave the same - by not allocating anything. Types in benchmark were defined as structs. While it may not be best option for such data structures, it helps here by not obstructing our view with needless allocations). 
 
-Double benchmarks is always ~2 times slower that Long ones but that has nothing to do with generic math itself - floating-point related operations are generally slower on CPU. 
+Double benchmarks are always ~2 times slower than Long ones but that has nothing to do with generic math itself - floating-point related operations are generally slower on CPUs. 
 
 What also can be observed is that difference in processing speed is negligible. Generic math is not adding much. In case we need to optimize, we can do so by employing pointer arithmetics or (better yet) - [Spans](https://learn.microsoft.com/en-us/archive/msdn-magazine/2018/january/csharp-all-about-span-exploring-a-new-net-mainstay).
 
@@ -734,7 +734,7 @@ Full benchmark and results can be found under this [gist](https://gist.github.co
 
 
 ## Summary
-We've seen how one might go about implementing generic math in their code. This matrix is not complete but I intend to finish it one day. It will be distributed via nuget like [my other packages](https://www.nuget.org/profiles/MichalBrylka)
+We've seen how one might go about implementing generic math in their code. This matrix is not complete but quite soon I intend to finish it. It will be distributed via nuget like [my other packages](https://www.nuget.org/profiles/MichalBrylka)
 
 ## Bonus - physics
 This should be treated as a work-in-progress but have a look at my initial proposal on how units can now be defined in C#: [Generic Units](https://gist.github.com/MichalBrylka/c614f567c483bc3a4e4ba5df11007366)
