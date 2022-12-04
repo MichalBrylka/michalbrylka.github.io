@@ -1,10 +1,10 @@
 ---
 title: Generic math extended example
 summary: Generic math feature from C# 11 brings us a lot of flexibility. Besides ubiquitously shared simple generic methods we can also implement whole types. Matrix seems to be a good candidate 
-date: 2022-11-05
+date: 2022-12-05
 tags: ["language", math, generics]
 categories: [csharp]
-draft: true
+draft: false
 math: true
 author: Michał Bryłka
 
@@ -12,7 +12,7 @@ resources:
 - name: "featured-image"
   src: "featured-image.png"
 
-lightgallery: true
+#lightgallery: true
 ---
 
 C# 11.0 [generic math](https://devblogs.microsoft.com/dotnet/preview-features-in-net-6-generic-math/) is very powerful extension to already capable generic types system present in C# since version 2.0. Besides [static interface members]({{< ref "/posts/static-interface-members" >}} "Static Interface Members") there are couple of changes that make it easier to express math concepts in C#. Let's see what needed to change in order to add this neat feature.
@@ -282,7 +282,7 @@ public Matrix<TNumber> Minor(int iRow, int iCol)
 ```
 Similarly it might be useful to obtain largest and smallest element in matrix. Since that requires some comparisons, let's add `IComparisonOperators<TNumber, TNumber, bool>` interface to our generic guard for `TNumber`. Doing so enables us to then use comparison operators. We will however thus loose the ability of using types that do not possess relational ordering - [Complex](https://learn.microsoft.com/en-us/dotnet/api/system.numerics.complex?view=net-7.0) type being most notable here
 {{< admonition type=note title="Note" open=true >}}
-Using `IComparisonOperators<TNumber, TNumber, bool>` is somewhat demanding. It's probably more important to be able to use final matrix with types like Complex especially if Min/Max operation could be added using different approach. So final design of matrix might reflect that notion
+Using `IComparisonOperators<TNumber, TNumber, bool>` is somewhat limiting. It's probably more important to be able to use final matrix with types like Complex especially if Min/Max operation could be added using different approach. So final design of matrix might reflect that notion
 {{< /admonition >}}
 
 ``` csharp

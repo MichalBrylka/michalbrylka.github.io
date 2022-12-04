@@ -1,5 +1,11 @@
-hugo serve --disableFastRender --buildFuture --buildExpired --buildDrafts --navigateToChanged
+$param1 = $args[0]
+if ($param1)
+{
+    $env = $param1
+}
+else
+{
+    $env = "development"
+}
 
-<#
---environment=production  
-#>
+hugo serve --disableFastRender --buildFuture --buildExpired --buildDrafts --navigateToChanged --environment=$env
