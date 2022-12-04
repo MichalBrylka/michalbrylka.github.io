@@ -1,7 +1,7 @@
 ---
 title: Generic math extended example
 summary: Generic math feature from C# 11 brings us a lot of flexibility. Besides ubiquitously shared simple generic methods we can also implement whole types. Matrix seems to be a good candidate 
-date: 2022-12-05
+publishDate: 2022-12-05T00:00:00+01:00
 tags: ["language", math, generics]
 categories: [csharp]
 draft: false
