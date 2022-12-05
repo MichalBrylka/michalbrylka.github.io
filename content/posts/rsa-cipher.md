@@ -1,10 +1,10 @@
 ---
 title: Public key cryptosystems and RSA
 summary: In modern times we often need a way to send messages in a covert way, without revealing a key prior to transfer. This can be achieved using systems with public/private keys
-date: 2021-06-28
+date: 2022-10-28
 tags: ["cryptography", legacy]
 categories: [math]
-draft: true
+draft: false
 math: true
 author: Michał Bryłka
 ---
@@ -83,7 +83,3 @@ $$ [ 01000001_{(2)}, 01000010_{(2)}, 01000011_{(2)} ] $$
 While fairly easy to understand, this approach has some downsides. Due to the fact that polynomial time attack was proposed by [Adi Shamir](https://ieeexplore.ieee.org/document/4568386) and another by [Leonard Alderman](https://link.springer.com/chapter/10.1007/978-1-4757-0602-4_29) this cryptosystem is now considered insecure.
 
 
-
-## RSA
-
-RSA is 
