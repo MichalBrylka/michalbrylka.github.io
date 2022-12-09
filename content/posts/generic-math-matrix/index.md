@@ -697,28 +697,32 @@ Have a look at my proposal of a simple vector structures. Among them you will fi
 Below you will find version that uses generic math along with version that uses generic math in tandem with pointer arithmetics ([Vector2.cs](https://gist.github.com/MichalBrylka/19ae10e62d55ce7cbb2cc9ab21e7e879#file-othervectors-cs) and others were not embedded for brevity):
 {{< gist MichalBrylka 19ae10e62d55ce7cbb2cc9ab21e7e879 Vector1.cs>}}
 
+#### Results
 These are the results from my machine:
-| Method         | Categories | Size  |       Mean |     Error |    StdDev | Ratio |
-| -------------- | ---------- | ----- | ---------: | --------: | --------: | ----: |
-| DoubleBench    | Double     | 100   |   8.387 us | 0.0545 us | 0.0455 us |  1.00 |
-| Vector1_Double | Double     | 100   |   8.462 us | 0.0117 us | 0.0104 us |  1.01 |
-| Vector2_Double | Double     | 100   |   7.428 us | 0.0167 us | 0.0148 us |  0.89 |
-| Span_Double    | Double     | 100   |   7.687 us | 0.0216 us | 0.0191 us |  0.92 |
-|                |            |       |            |           |           |       |
-| DoubleBench    | Double     | 10000 | 935.063 us | 1.4331 us | 1.2704 us |  1.00 |
-| Vector1_Double | Double     | 10000 | 935.315 us | 2.0107 us | 1.6790 us |  1.00 |
-| Vector2_Double | Double     | 10000 | 935.157 us | 2.0961 us | 1.8581 us |  1.00 |
-| Span_Double    | Double     | 10000 | 934.439 us | 2.0086 us | 1.7805 us |  1.00 |
-|                |            |       |            |           |           |       |
-| LongBench      | Long       | 100   |   4.712 us | 0.0371 us | 0.0347 us |  1.00 |
-| Vector1_Long   | Long       | 100   |   5.616 us | 0.0367 us | 0.0306 us |  1.19 |
-| Vector2_Long   | Long       | 100   |   5.567 us | 0.0105 us | 0.0093 us |  1.18 |
-| Span_Long      | Long       | 100   |   4.583 us | 0.0230 us | 0.0192 us |  0.97 |
-|                |            |       |            |           |           |       |
-| LongBench      | Long       | 10000 | 430.674 us | 2.0188 us | 1.6858 us |  1.00 |
-| Vector1_Long   | Long       | 10000 | 401.085 us | 2.8027 us | 2.4845 us |  0.93 |
-| Vector2_Long   | Long       | 10000 | 443.050 us | 2.1181 us | 1.8776 us |  1.03 |
-| Span_Long      | Long       | 10000 | 393.092 us | 2.3554 us | 1.9669 us |  0.91 |
+
+Category: **Double**
+| Method         | Size  | Mean \[μs\] | Error \[μs\] | StdDev \[μs\] | Ratio |
+| -------------- | ----- | ----------: | -----------: | ------------: | ----: |
+| DoubleBench    | 100   |       8.387 |       0.0545 |        0.0455 |  1.00 |
+| Vector1_Double | 100   |       8.462 |       0.0117 |        0.0104 |  1.01 |
+| Vector2_Double | 100   |       7.428 |       0.0167 |        0.0148 |  0.89 |
+| Span_Double    | 100   |       7.687 |       0.0216 |        0.0191 |  0.92 |
+| DoubleBench    | 10000 |     935.063 |       1.4331 |        1.2704 |  1.00 |
+| Vector1_Double | 10000 |     935.315 |       2.0107 |        1.6790 |  1.00 |
+| Vector2_Double | 10000 |     935.157 |       2.0961 |        1.8581 |  1.00 |
+| Span_Double    | 10000 |     934.439 |       2.0086 |        1.7805 |  1.00 |
+
+Category: **Long**
+| Method         | Size  | Mean \[μs\] | Error \[μs\] | StdDev \[μs\] | Ratio |
+| -------------- | ----- | ----------: | -----------: | ------------: | ----: |
+| LongBench      | 100   |       4.712 |       0.0371 |        0.0347 |  1.00 |
+| Vector1_Long   | 100   |       5.616 |       0.0367 |        0.0306 |  1.19 |
+| Vector2_Long   | 100   |       5.567 |       0.0105 |        0.0093 |  1.18 |
+| Span_Long      | 100   |       4.583 |       0.0230 |        0.0192 |  0.97 |
+| LongBench      | 10000 |     430.674 |       2.0188 |        1.6858 |  1.00 |
+| Vector1_Long   | 10000 |     401.085 |       2.8027 |        2.4845 |  0.93 |
+| Vector2_Long   | 10000 |     443.050 |       2.1181 |        1.8776 |  1.03 |
+| Span_Long      | 10000 |     393.092 |       2.3554 |        1.9669 |  0.91 |
 
 One can clearly see that memory-wise, they all behave the same - by not allocating anything. Types in benchmark were defined as structs. While it may not be best option for such data structures, it helps here by not obstructing our view with needless allocations). 
 
