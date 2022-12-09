@@ -1,0 +1,8 @@
+{{- $package := .Get 0 -}}
+{{- $nugetUrl := printf "https://www.nuget.org/packages/%v" $package -}}
+{{- $badgeUrl := printf "https://img.shields.io/nuget/v/%v.svg?style=flat-square&color=blue&logo=nuget&label=" $package -}}
+
+<a href="{{ $nugetUrl }}" rel="noopener noreffer" target="_blank">
+    <img src="{{ $badgeUrl }}" alt="Nuget for {{ $package }}" style="vertical-align: middle;" />
+    <span>{{ $package }}</span>
+</a>
