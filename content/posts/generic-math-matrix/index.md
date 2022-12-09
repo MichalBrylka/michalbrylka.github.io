@@ -732,7 +732,131 @@ What also can be observed is that difference in processing speed is negligible. 
 
 One could argue that `DoubleVector`and `LongVector` could also benefit from using additional optimization techniques but we need to repeat them for each and every case. We might probably be more tempted to introduce optimizations when many (generic) types can benefit from these actions.
 
-{{< admonition type=note title="Source code" open=true >}}
+This graph summarizes in details all benchmarks performed for `System.Long` type for various vector sizes. One can clearly see that differences are almost negligible 
+{{< echarts >}}
+{
+    "title": {
+      "text": "Performance of vectors types [μs]",
+      "top": "2%",
+      "left": "center"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": ["Dedicated vector", "Generic vector" , "Generic vector with pointer arithmetics", "Vector with span backing"],
+      "top": "10%"
+    },
+    "grid": {
+      "left": "5%",
+      "right": "5%",
+      "bottom": "5%",
+      "top": "20%",
+      "containLabel": true
+    },
+    "toolbox": {
+      "feature": {
+        "saveAsImage": {
+          "title": "Save as Image"
+        }
+      }
+    },
+    "xAxis": {
+      "type": "category",
+      "boundaryGap": false,
+      "data": ["10", "100", "1000", "10000", "100000", "1000000"]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "name": "Dedicated vector",
+        "type": "line",        
+        "data": [0.5252, 4.6899, 40.6706, 429.6956, 4326.9663, 48113.1239]
+      },
+      {
+        "name": "Generic vector",
+        "type": "line",        
+        "data": [0.7776, 5.0594, 38.3465, 474.6456, 4693.9954, 48628.9106]
+      },
+      {
+        "name": "Generic vector with pointer arithmetics",
+        "type": "line",        
+        "data": [0.8456, 5.5831, 47.7041, 471.7119, 4713.6924, 46883.9084]
+      },
+      {
+        "name": "Vector with span backing",
+        "type": "line",
+        "data": [0.8059, 4.5867, 36.9617, 375.8776, 3788.5032, 43107.3873]
+      }
+    ]
+  }
+{{< /echarts >}}
+
+Same data, but restricted only to largest sizes:
+{{< echarts >}}
+{
+    "title": {
+      "text": "Performance of vectors types [μs]",
+      "top": "2%",
+      "left": "center"
+    },
+    "tooltip": {
+      "trigger": "axis"
+    },
+    "legend": {
+      "data": ["Dedicated vector", "Generic vector" , "Generic vector with pointer arithmetics", "Vector with span backing"],
+      "top": "10%"
+    },
+    "grid": {
+      "left": "5%",
+      "right": "5%",
+      "bottom": "5%",
+      "top": "20%",
+      "containLabel": true
+    },
+    "toolbox": {
+      "feature": {
+        "saveAsImage": {
+          "title": "Save as Image"
+        }
+      }
+    },
+    "xAxis": {
+      "type": "category",
+      "boundaryGap": false,
+      "data": ["10000", "100000", "1000000"]
+    },
+    "yAxis": {
+      "type": "value"
+    },
+    "series": [
+      {
+        "name": "Dedicated vector",
+        "type": "line",        
+        "data": [429.6956, 4326.9663, 48113.1239]
+      },
+      {
+        "name": "Generic vector",
+        "type": "line",        
+        "data": [474.6456, 4693.9954, 48628.9106]
+      },
+      {
+        "name": "Generic vector with pointer arithmetics",
+        "type": "line",        
+        "data": [471.7119, 4713.6924, 46883.9084]
+      },
+      {
+        "name": "Vector with span backing",
+        "type": "line",
+        "data": [375.8776, 3788.5032, 43107.3873]
+      }
+    ]
+  }
+{{< /echarts >}}
+
+{{< admonition type=example title="Source code" open=true >}}
 Full benchmark and results can be found under this [gist](https://gist.github.com/MichalBrylka/19ae10e62d55ce7cbb2cc9ab21e7e879)
 {{< /admonition >}}
 
@@ -745,3 +869,4 @@ This should be treated as a work-in-progress but have a look at my initial propo
 
 ## Sources 
 - [Generic Matrix code](https://gist.github.com/MichalBrylka/0b226418e297fbe6d7413e0c812c4d19#file-program-cs)
+-  {{< nuget Nemesis.TextParsers >}} was used to provide a nice and performant [equivalent](https://github.com/nemesissoft/Nemesis.TextParsers/blob/3fac52a9b35856ac57e4ae6e6d854a448c7032d8/Nemesis.TextParsers/SpanSplit.cs#L290) to [string.Split](https://learn.microsoft.com/en-us/dotnet/api/system.string.split?view=net-7.0) for `ReadOnlySpan<char>` for parsing purposes
