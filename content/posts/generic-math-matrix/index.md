@@ -862,7 +862,9 @@ Full benchmark and results can be found under this [gist](https://gist.github.co
 
 
 ## Summary
-We've seen how one might go about implementing generic math in their code. This matrix is not complete but quite soon I intend to finish it. It will be distributed via nuget like [my other packages](https://www.nuget.org/profiles/MichalBrylka)
+We've seen how one might go about implementing generic math in their code. This matrix is not complete but quite soon I intend to finish it. It will be distributed via nuget like [my other packages](https://www.nuget.org/profiles/MichalBrylka). 
+
+Are you still not convinced? It seems that Microsoft is already using generic math in their libraries i.e. in many places in LINQ including (but not limited to) [Average](https://github.com/dotnet/runtime/blob/c6f5267686688aeabaa84aeb02efc2b411e7d64b/src/libraries/System.Linq/src/System/Linq/Average.cs#L77) or [Sum](https://github.com/dotnet/runtime/blob/c6f5267686688aeabaa84aeb02efc2b411e7d64b/src/libraries/System.Linq/src/System/Linq/Sum.cs#L63), which replaced some old and seasoned dedicated types copy-and-paste method implementations. If Microsoft is having faith in generic math, there is no reason that shouldn't you. 
 
 ## Bonus - physics
 This should be treated as a work-in-progress but have a look at my initial proposal on how units can now be defined in C#: [Generic Units](https://gist.github.com/MichalBrylka/c614f567c483bc3a4e4ba5df11007366)
