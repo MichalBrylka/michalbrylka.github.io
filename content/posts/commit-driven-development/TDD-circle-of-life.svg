@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="800"
+   height="500"
+   overflow="hidden"
+   version="1.1"
+   id="svg212"
+   sodipodi:docname="TDD-circle-of-life.svg"
+   style="overflow:hidden"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata216">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview214"
+     showgrid="false"
+     inkscape:zoom="1.4595525"
+     inkscape:cx="137.37087"
+     inkscape:cy="251.7895"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg212"
+     inkscape:pagecheckerboard="0" />
+  <defs
+     id="defs174">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4634">
+      <stop
+         style="stop-color:#999999;stop-opacity:1"
+         offset="0"
+         id="stop4630" />
+      <stop
+         style="stop-color:#666666;stop-opacity:1"
+         offset="1"
+         id="stop4632" />
+    </linearGradient>
+    <filter
+       id="fx0"
+       x="-170.8"
+       y="-116.2"
+       width="2049.6001"
+       height="1394.4"
+       filterUnits="userSpaceOnUse"
+       primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer
+         id="feComponentTransfer122"
+         style="color-interpolation-filters:sRGB">
+        <feFuncR
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncR114" />
+        <feFuncG
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncG116" />
+        <feFuncB
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncB118" />
+        <feFuncA
+           type="linear"
+           slope="0.34902"
+           intercept="0"
+           id="feFuncA120" />
+      </feComponentTransfer>
+      <feGaussianBlur
+         stdDeviation="4.58333 4.58333"
+         id="feGaussianBlur124" />
+    </filter>
+    <filter
+       id="fx1"
+       x="-170.8"
+       y="-116.2"
+       width="2049.6001"
+       height="1394.4"
+       filterUnits="userSpaceOnUse"
+       primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer
+         id="feComponentTransfer135"
+         style="color-interpolation-filters:sRGB">
+        <feFuncR
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncR127" />
+        <feFuncG
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncG129" />
+        <feFuncB
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncB131" />
+        <feFuncA
+           type="linear"
+           slope="0.34902"
+           intercept="0"
+           id="feFuncA133" />
+      </feComponentTransfer>
+      <feGaussianBlur
+         stdDeviation="4.58333 4.58333"
+         id="feGaussianBlur137" />
+    </filter>
+    <filter
+       id="fx2"
+       x="-170.8"
+       y="-116.2"
+       width="2049.6001"
+       height="1394.4"
+       filterUnits="userSpaceOnUse"
+       primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer
+         id="feComponentTransfer148"
+         style="color-interpolation-filters:sRGB">
+        <feFuncR
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncR140" />
+        <feFuncG
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncG142" />
+        <feFuncB
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncB144" />
+        <feFuncA
+           type="linear"
+           slope="0.34902"
+           intercept="0"
+           id="feFuncA146" />
+      </feComponentTransfer>
+      <feGaussianBlur
+         stdDeviation="4.58333 4.58333"
+         id="feGaussianBlur150" />
+    </filter>
+    <clipPath
+       id="clip3">
+      <rect
+         x="1099"
+         y="501"
+         width="1708"
+         height="1162"
+         id="rect153" />
+    </clipPath>
+    <clipPath
+       id="clip4">
+      <rect
+         x="-2"
+         y="-2"
+         width="281"
+         height="431"
+         id="rect156" />
+    </clipPath>
+    <clipPath
+       id="clip5">
+      <rect
+         x="0"
+         y="0"
+         width="275"
+         height="427"
+         id="rect159" />
+    </clipPath>
+    <clipPath
+       id="clip6">
+      <rect
+         x="-2"
+         y="-2"
+         width="351"
+         height="422"
+         id="rect162" />
+    </clipPath>
+    <clipPath
+       id="clip7">
+      <rect
+         x="0"
+         y="0"
+         width="347"
+         height="419"
+         id="rect165" />
+    </clipPath>
+    <clipPath
+       id="clip8">
+      <rect
+         x="-2"
+         y="-2"
+         width="343"
+         height="221"
+         id="rect168" />
+    </clipPath>
+    <clipPath
+       id="clip9">
+      <rect
+         x="0"
+         y="0"
+         width="338"
+         height="217"
+         id="rect171" />
+    </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4634"
+       id="radialGradient4628"
+       cx="402.10858"
+       cy="263.20724"
+       fx="402.10858"
+       fy="263.20724"
+       r="324.99999"
+       gradientTransform="matrix(0.96744573,0.0059627,-0.00474094,0.7692162,14.338232,55.298494)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <rect
+     style="fill:url(#radialGradient4628);stroke:none;stroke-width:0.975808;fill-opacity:1"
+     id="rect263"
+     width="649.02417"
+     height="499.0242"
+     x="75.487915"
+     y="0.48789978" />
+  <g
+     id="g154"
+     transform="translate(150.34088)">
+    <g
+       id="g210"
+       transform="matrix(0.46486055,0,0,0.46486055,-645.10973,-233.94845)"
+       clip-path="url(#clip3)">
+      <text
+         style="font-weight:400;font-size:101px;font-family:'Comic Sans MS', 'Comic Sans MS_MSFontService', sans-serif"
+         id="text178"
+         transform="translate(2186.05,777)"
+         font-size="101"
+         font-weight="400">Tests<tspan
+   style="font-size:101px"
+   id="tspan176"
+   y="127"
+   x="55.366699"
+   font-size="101">fail</tspan></text>
+      <g
+         style="filter:url(#fx0)"
+         id="g184"
+         transform="translate(2153,1018)"
+         clip-path="url(#clip4)">
+        <g
+           id="g182"
+           clip-path="url(#clip5)">
+          <path
+             style="fill:#ff0000;fill-rule:evenodd"
+             inkscape:connector-curvature="0"
+             id="path180"
+             d="M 260.05,16.5439 C 258.04,151.129 197.26,278.102 93.6931,364.073 L 122.709,412.378 14.7014,367.923 20.1582,241.656 49.1086,289.852 C 127.575,219.949 173.134,120.346 174.703,15.2695 Z" />
+        </g>
+      </g>
+      <path
+         style="fill:#ff0000;fill-rule:evenodd"
+         inkscape:connector-curvature="0"
+         id="path186"
+         d="m 2413.05,1025.38 c -2.01,134.58 -62.79,261.56 -166.36,347.53 l 29.02,48.3 -108.01,-44.45 5.46,-126.27 28.95,48.2 c 78.47,-69.91 124.02,-169.51 125.59,-274.59 z" />
+      <text
+         style="font-weight:400;font-size:101px;font-family:'Comic Sans MS', 'Comic Sans MS_MSFontService', sans-serif"
+         id="text190"
+         transform="translate(1817.92,1414)"
+         font-size="101"
+         font-weight="400">Tests<tspan
+   style="font-size:101px"
+   id="tspan188"
+   y="127"
+   x="32.885399"
+   font-size="101">pass</tspan></text>
+      <g
+         style="filter:url(#fx1)"
+         id="g196"
+         transform="translate(1427,1019)"
+         clip-path="url(#clip6)">
+        <g
+           id="g194"
+           clip-path="url(#clip7)">
+          <path
+             style="fill:#00b050;fill-rule:evenodd"
+             inkscape:connector-curvature="0"
+             id="path192"
+             d="M 288.322,403.508 C 172.938,334.198 93.6458,217.884 71.2945,85.1524 L 14.9499,85.9938 107.623,14.9066 214.082,83.0203 157.867,83.8591 C 178.925,186.816 242.191,276.224 332.275,330.337 Z" />
+        </g>
+      </g>
+      <path
+         style="fill:#00b050;fill-rule:evenodd"
+         inkscape:connector-curvature="0"
+         id="path198"
+         d="m 1715.32,1413.34 c -115.38,-69.31 -194.67,-185.62 -217.03,-318.35 l -56.34,0.84 92.67,-71.09 106.46,68.11 -56.21,0.84 c 21.05,102.96 84.32,192.37 174.41,246.48 z" />
+      <text
+         style="font-weight:400;font-size:92px;font-family:'Comic Sans MS', 'Comic Sans MS_MSFontService', sans-serif"
+         id="text200"
+         transform="translate(1392.6,837)"
+         font-size="92"
+         font-weight="400">Refactor</text>
+      <g
+         style="filter:url(#fx2)"
+         id="g206"
+         transform="translate(1776,509)"
+         clip-path="url(#clip8)">
+        <g
+           id="g204"
+           clip-path="url(#clip9)">
+          <path
+             style="fill:#0070c0;fill-rule:evenodd"
+             inkscape:connector-curvature="0"
+             id="path202"
+             d="M 14.7862,87.3871 C 96.6402,56.6946 185.538,49.9299 271.094,67.8833 l 19.784,-52.7629 32.352,112.2276 -102.274,74.249 19.74,-52.643 C 174.912,137.532 107.272,143.868 44.7545,167.31 Z" />
+        </g>
+      </g>
+      <path
+         style="fill:#0070c0;fill-rule:evenodd"
+         inkscape:connector-curvature="0"
+         id="path208"
+         d="m 1790.79,587.22 c 81.85,-30.692 170.75,-37.457 256.3,-19.503 l 19.79,-52.763 32.35,112.228 -102.27,74.248 19.74,-52.643 c -65.79,-11.422 -133.43,-5.085 -195.95,18.356 z" />
+    </g>
+    <text
+       id="text220"
+       y="212.36136"
+       x="249.25177"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:'Comic Sans MS', 'Comic Sans MS_MSFontService', sans-serif;-inkscape-font-specification:'Comic Sans MS, Comic Sans MS_MSFontService, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         y="212.36136"
+         x="249.25177"
+         id="tspan218"
+         sodipodi:role="line">TDD</tspan><tspan
+         id="tspan224"
+         y="262.36136"
+         x="249.25177"
+         sodipodi:role="line">circle</tspan><tspan
+         id="tspan228"
+         y="312.36136"
+         x="249.25177"
+         sodipodi:role="line">of life</tspan></text>
+  </g>
+</svg>

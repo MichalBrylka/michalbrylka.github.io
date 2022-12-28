@@ -2,8 +2,8 @@
 title: Static Interface Members
 summary: In case you've lost last 3 years on C# interface design, you'd better catch up before asking classic "abstract class vs interface" on next job interview. Things have changed. Thankfully, for the better   
 date: 2022-11-17
-tags: ["architecture", interface]
-categories: [csharp]
+tags: ["architecture", interface, csharp]
+categories: [programming]
 draft: false
 math: true
 author: Michał Bryłka

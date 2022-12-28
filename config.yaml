@@ -2,11 +2,13 @@ baseURL: https://michalbrylka.github.io/
 languageCode: en-us
 languageName: English
 copyright: '&copy; Copyright 2019-2022 Michał Bryłka'
+rssLimit: 20
 title: "Michał Bryłka | Devexcellence"
 
 theme: LoveIt
 
 enableEmoji: true
+enableGitInfo: true
 
 # googleAnalytics: G-TFL0Z5DXWF
 #enableRobotsTXT: true
@@ -20,8 +22,10 @@ outputs:
   home: ["HTML", "RSS", "JSON"]  
   
 params: 
-  defaultTheme: dark # site default theme ["auto", "light", "dark"]
+  defaultTheme: auto # site default theme ["auto", "light", "dark"]
+  gitRepo: "https://github.com/MichalBrylka/michalbrylka.github.io" # public git repo url only when enableGitInfo is true
   title: "Michał Bryłka | Devexcellence"
+  description: "Michał Bryłka | Devexcellence blog" 
   dateFormat: "2006-01-02"
 
   header:
@@ -29,8 +33,6 @@ params:
       logo: ''
       name: "Devexcellence"
       pre: '<i class="fa-solid fa-code" ></i>'
-
-
       post: ''
       typeit: false   
   home:
@@ -51,11 +53,12 @@ params:
     Linkedin: 'michalbrylka'
     Twitter: 'michal_brylka'    
     Facebook: 'Michal.Brylka'
-    # RSS: ""
+    RSS: true
   page:    
+    rssFullText: false
     hiddenFromSearch: false    
     fontawesome: true
-    linkToMarkdown: false
+    linkToMarkdown: true
     fraction: true
     math:
       enable: true     

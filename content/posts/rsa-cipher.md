@@ -4,7 +4,7 @@ summary: In modern times we often need a way to send messages in a covert way, w
 date: 2022-10-28
 tags: ["cryptography", legacy]
 categories: [math]
-draft: false
+draft: true
 math: true
 author: Michał Bryłka
 ---
@@ -83,3 +83,26 @@ $$ [ 01000001_{(2)}, 01000010_{(2)}, 01000011_{(2)} ] $$
 While fairly easy to understand, this approach has some downsides. Due to the fact that polynomial time attack was proposed by [Adi Shamir](https://ieeexplore.ieee.org/document/4568386) and another by [Leonard Alderman](https://link.springer.com/chapter/10.1007/978-1-4757-0602-4_29) this cryptosystem is now considered insecure.
 
 
+
+
+
+## RSA
+The RSA encryption method is used to send messages over the internet securely. It is based on the idea that whereas factoring huge numbers is challenging, multiplying large numbers is simple. For instance, verifying that *89* multiplied by *97* equals *8633* is trivial, but determining the (prime) factors of *8633* takes much longer.
+
+Let's start with the beginning. A number $ p $ is considered **prime** if:
+{{< raw >}}
+$$ p \gt 1 \land k \mid n \Leftrightarrow  k \in \{ 1, n \} $$
+{{< /raw >}}
+
+i.e. 7 is prime as it's only divisible by 1 and 7. Conversely, 20 is not a prime as the following factors {1, 2, 4, 5, 10, 20} all divide 20 with no remainder. A number greater than 1 that is not prime is called [a composite number](https://en.wikipedia.org/wiki/Composite_number). 
+
+Why do we keep repeating that both composite and prime numbers must be greater than *1*? We could call *1* the first prime number or even composite number (if we close our eyes slightly :wink:). Main reason is [fundamental theorem of arithmetic](https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic) that was proven in ancient times by Euclid and can be formulated as follows:
+> Every integer greater than 1 can be represented **uniquely** as a product of prime numbers, up to the order of the factors
+
+Since uniqueness is very strong characteristic, one must remember about adding "greater than *1*". Should we declare *1* to be prime, we would loose uniqueness as we can multiply numbers by 1 any number of times without changing result. This characteristic will be needed later on.
+
+
+
+TODO 
+https://simple.wikipedia.org/wiki/RSA_algorithm#:~:text=RSA%20(Rivest%E2%80%93Shamir%E2%80%93Adleman,can%20be%20given%20to%20anyone.
+https://brilliant.org/wiki/rsa-encryption/
