@@ -1,10 +1,8 @@
 $param1 = $args[0]
-if ($param1)
-{
+if ($param1) {
     $env = $param1
 }
-else
-{
+else {
     $env = "development"
 }
 
