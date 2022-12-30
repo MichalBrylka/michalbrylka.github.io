@@ -6,4 +6,4 @@ else {
     $env = "development"
 }
 
-hugo serve --disableFastRender --buildFuture --buildExpired --buildDrafts --navigateToChanged --environment=$env
+hugo serve --disableFastRender --buildDrafts --navigateToChanged --environment=$env # --buildFuture --buildExpired

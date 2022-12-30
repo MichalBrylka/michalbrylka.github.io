@@ -2,9 +2,9 @@
 title: Using Records in legacy .NET Frameworks
 summary: C# 9.0 records can be used in older frameworks. Extend your score on records to [100]/[100]
 date: 2020-06-11T00:18:08+02:00
-tags: ["records", legacy]
+tags: ["records", legacy, csharp]
 categories:
-  - csharp
+  - programming
 draft: false
 author: Michał Bryłka
 ---
