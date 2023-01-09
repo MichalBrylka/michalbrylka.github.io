@@ -16,7 +16,8 @@ Let me introduce a quick tip that may speed your work (especially) when dealing 
 Most of us are familiar with [test-driven development](https://en.wikipedia.org/wiki/Test-driven_development) approach. Even if we do not use it in our project (which usually means it's not test-oriented), TDD concept must be known by heart as it's a favorite topic among job recruiters :wink:. 
 
 TDD as a methodology usually pivots around cycles that may look like that:
-{{< svg "static/svg/TDD-circle-of-life.svg" >}}
+{{< figure src="TDD-circle-of-life.svg" caption="TDD lifecycle" >}}
+
 It gives us more benefit if we are familiarized with it as follows: 
 > Make it work. Make it right. Make it fast.
 
@@ -27,7 +28,12 @@ It's advisable to squash all (or most - depending on context) commits before pus
 
 ## Commitment driven development
 Usual Git workflow dictates to perform some work, add our changes and commit them later on. We could however *commit* our work first and somewhat reverse this process. This way we are making a *commitment* to what we currently are dealing with. After all *commitment* is defined as
-> the state or quality of being dedicated to a cause, activity, etc.
+> an agreement or pledge to do something in the future
+> 
+> — <cite>Merriam-Webster[^1]</cite>
+
+[^1]: [Commitment definition](https://www.merriam-webster.com/dictionary/commitment)
+
 
 Git allows us to commit no changes by using
 ``` powershell
