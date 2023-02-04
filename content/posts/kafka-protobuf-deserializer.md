@@ -73,11 +73,14 @@ Full implementation can be found [here](https://github.com/nemesissoft/KafkaProt
 ## Benchmarks 
 ### Unit benchmarks
 [This](https://github.com/nemesissoft/KafkaProtobufSyncOverAsyncPerf/blob/6e7235e7489e67b712b4dfd326a646a0030e9417/KafkaDeserPerf/DeserializerBenchmarks.cs) benchmark tests what the performance and memory footprint of every approach are. Full results are located in the same file, let me just present excerpt for problem size equal to 10 (pay no attention to NonAlloc* benchmarks, they we just there for tests):
-|         Method |         Mean |       Error |      StdDev | Ratio |   Gen 0 |  Gen 1 | Allocated |
-|--------------- |-------------:|------------:|------------:|------:|--------:|-------:|----------:|
-|      Confluent |  12,087.8 ns |   117.93 ns |   110.31 ns |  1.00 |  8.2779 | 0.1678 |  52,003 B |
-| EfficientAsync |   4,995.7 ns |    52.32 ns |    48.94 ns |  0.41 |  0.9689 |      - |   6,080 B |
-|  EfficientSync |   4,838.4 ns |    80.18 ns |    75.00 ns |  0.40 |  0.8545 |      - |   5,360 B |
+
+{{<tablesortable>}}
+| Method         | Mean [ns] |  Error | Ratio |  Gen 0 |  Gen 1 | Allocated [B] |
+| -------------- | --------: | -----: | ----: | -----: | -----: | ------------: |
+| Confluent      |   12087.8 | 117.93 |  1.00 | 8.2779 | 0.1678 |         52003 |
+| EfficientAsync |    4995.7 |  52.32 |  0.41 | 0.9689 |      - |          6080 |
+| EfficientSync  |    4838.4 |  80.18 |  0.40 | 0.8545 |      - |          5360 |
+{{</tablesortable>}}
 
 Especially after presenting same data on interactive chart:
 {{< echarts >}}
@@ -141,12 +144,15 @@ Moreover, my synchronous version is *only* slightly (*"negligibly"*) faster than
 
 ### Full operation benchmarks 
 Ok we see where this is going. Performance benefits are visible but one can argue that they might not be significant. After all, Kafka internally allocates a lot of things (message itself, TopicPartitionOffset, ConsumeResult etc.). They all *clearly* would dwarf performance benefits we've just obtained. Let's measure that. [Here](https://github.com/nemesissoft/KafkaProtobufSyncOverAsyncPerf/blob/6e7235e7489e67b712b4dfd326a646a0030e9417/KafkaDeserPerf/FullDeserializerBenchmarks.cs) I tried to recreate the whole pipeline that Confluent's Kafka performs upon message deserialization. These are the results:
-|         Method |        Mean |     Error |    StdDev | Ratio |   Gen 0 |  Gen 1 | Allocated |
-|--------------- |------------:|----------:|----------:|------:|--------:|-------:|----------:|
-|         Create |  1,049.5 ns |  18.40 ns |  26.97 ns |  1.00 |  0.9937 | 0.0019 |   6,240 B |
-|      Confluent |  8,116.3 ns |  92.92 ns |  82.37 ns |  7.65 |  8.6670 | 0.1221 |  54,403 B |
-| EfficientAsync |  5,137.8 ns |  96.98 ns |  99.59 ns |  4.85 |  1.3504 |      - |   8,480 B |
-|  EfficientSync |  4,993.0 ns |  34.52 ns |  32.29 ns |  4.71 |  1.2360 |      - |   7,760 B | 
+
+{{< tablesortable >}}
+| Method         | Mean [ns] | Error | Ratio |  Gen 0 |  Gen 1 | Allocated [B] |
+| -------------- | --------: | ----: | ----: | -----: | -----: | ------------: |
+| Create         |    1049.5 | 18.40 |  1.00 | 0.9937 | 0.0019 |          6240 |
+| Confluent      |    8116.3 | 92.92 |  7.65 | 8.6670 | 0.1221 |         54403 |
+| EfficientAsync |    5137.8 | 96.98 |  4.85 | 1.3504 |      - |          8480 |
+| EfficientSync  |    4993.0 | 34.52 |  4.71 | 1.2360 |      - |          7760 |
+{{< /tablesortable >}}
 
 *Create* benchmark is there just to demonstrate amount of memory/performance that deserialize operation would have without any calls to Protobuf deserializer. Again, the difference both in performance and memory allocations is clear...  
 
