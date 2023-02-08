@@ -1,0 +1,14 @@
+{{ $htmlTable := .Inner | markdownify }}
+{{ $class := .Get 0 }}
+{{ $old := "<table>" }}
+{{ $new := printf "<table class=\"%s\" data-sortable>" $class }}
+{{ $htmlTable := replace $htmlTable $old $new }}
+{{ $htmlTable | safeHTML}}
+
+{{ $sortableInit :=  printf "Sortable.init();" }}
+{{ if not ($.Page.Scratch.Get "sortable-count") }}
+<script src ="/js/sortable.min.js"></script>
+<script>{{$sortableInit | safeJS}} </script>
+<link rel="stylesheet" href="/css/sortable-theme.css" />
+{{ end }}
+{{ $.Page.Scratch.Add "sortable-count" 1 }}
