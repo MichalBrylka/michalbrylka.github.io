@@ -1,0 +1,65 @@
+/* line 2, ../sass/_sortable.sass */
+table[data-sortable] {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* line 6, ../sass/_sortable.sass */
+table[data-sortable] th {
+  vertical-align: bottom;
+  font-weight: bold;
+  border: 1px solid currentColor;
+}
+/* line 10, ../sass/_sortable.sass */
+table[data-sortable] th, table[data-sortable] td {
+  text-align: left;
+  padding: 10px;
+}
+/* line 14, ../sass/_sortable.sass */
+table[data-sortable] th:not([data-sortable="false"]) {
+
+  cursor: pointer;
+}
+
+/* line 26, ../sass/_sortable.sass */
+table[data-sortable] th:after {
+  content: "";
+  display: inline-block;
+  vertical-align: inherit;
+  height: 0;
+  width: 0;
+  border-width: 5px;
+  border-style: solid;
+  border-top-color: currentColor;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  margin-right: 1px;
+  margin-left: 10px;
+  float: right;
+  margin-top: 12px;
+}
+table[data-sortable]:hover th[data-sorted="false"]:after{
+  border-top-color: currentColor;
+  margin-top: 12px;
+
+
+}
+/* line 40, ../sass/_sortable.sass */
+table[data-sortable] th[data-sorted="true"]:after {
+  visibility: visible;
+}
+/* line 43, ../sass/_sortable.sass */
+table[data-sortable] th[data-sorted-direction="descending"]:after {
+  border-top-color: currentColor;
+  border-bottom-color: transparent;
+  margin-top: 12px;
+}
+/* line 47, ../sass/_sortable.sass */
+table[data-sortable] th[data-sorted-direction="ascending"]:after {
+  border-bottom-color: currentColor;
+  border-top-color: transparent;
+  margin-top: 3px;
+}
+table[data-sortable] tbody td {
+  border: 1px solid currentColor;
+}
