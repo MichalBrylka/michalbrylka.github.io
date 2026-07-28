@@ -1,0 +1,16 @@
+services:
+  hugo:
+    build:
+      context: .
+    image: michalbrylka-blog
+    container_name: michalbrylka-blog
+    ports:
+      - "1313:1313"
+    volumes:
+      - ./content:/src/content:ro
+      - ./layouts:/src/layouts:ro
+      - ./static:/src/static:ro
+      - ./assets:/src/assets:ro
+      - ./themes:/src/themes:ro
+      - ./config.yaml:/src/config.yaml:ro
+      - ./.git:/src/.git:ro
